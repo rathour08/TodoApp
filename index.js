@@ -1,5 +1,7 @@
 console.log("welcome to our todo app");
 
+let todos = [];
+
 let todoDataSection = document.getElementById("todo-data")
 
 let saveButton = document.getElementById("save-todo");
@@ -25,15 +27,16 @@ saveButton.addEventListener("click", function getTextAndAddTodo(){
     let todoText = todoInputBar.value;
 
     if(todoText.length == 0) return;
+    todos.push(todoText);
 
-    addTodo(todoText)
+    addTodo(todoText, todos.length);
     todoInputBar.value = "";
 
 });
 
 
 
-function addTodo(todoData){
+function addTodo(todoData, todoCount){
     let rowDiv = document.createElement("div");
     let todoItem = document.createElement("div");
     let todoNumber = document.createElement("div");
@@ -63,7 +66,7 @@ function addTodo(todoData){
     finishedButton.classList.add("btn", "btn-success")
 
 
-    todoNumber.textContent = "1"
+    todoNumber.textContent = `${todoCount}.`
     todoDetail.textContent = todoData; // sets the todo text sent form the input element
     todoStatus.textContent = "In Progress"
     deleteButton.textContent = "Delete"
