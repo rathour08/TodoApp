@@ -2,7 +2,7 @@ console.log("welcome to our todo app");
 
 let todos = [];
 
-let todoDataSection = document.getElementById("todo-data")
+let todoDataList = document.getElementById("todo-data-list")
 
 let saveButton = document.getElementById("save-todo");
 
@@ -34,7 +34,19 @@ saveButton.addEventListener("click", function getTextAndAddTodo(){
 
 });
 
+function removeTodo(event){
+    // console.log("Removing", event);
+    // event.target.parentElement.parentElement.parentElement.remove();
+    todoDataList.innerHTML = '';
+    let buttonPressed = event.target
+    let number = Number(buttonPressed.getAttribute("todo-index"));
+    todos.splice(number, 1);
+    todos.forEach((element, index)=>{
+        addTodo(element, index+1);
 
+    })
+
+}
 
 function addTodo(todoData, todoCount){
     let rowDiv = document.createElement("div");
@@ -61,9 +73,14 @@ function addTodo(todoData, todoCount){
 
     todoAction.classList.add("todo-actions", "d-flex", "justify-content-start", "gap-2")
 
-    deleteButton.classList.add("btn", "btn-danger")
+    deleteButton.classList.add("btn", "btn-danger", "delete-todo")
 
-    finishedButton.classList.add("btn", "btn-success")
+    finishedButton.classList.add("btn", "btn-success", "finished-todo")
+
+    deleteButton.setAttribute("todo-index", todoCount-1);
+
+
+    deleteButton.onclick = removeTodo;
 
 
     todoNumber.textContent = `${todoCount}.`
@@ -81,7 +98,7 @@ function addTodo(todoData, todoCount){
     rowDiv.appendChild(todoItem);
     rowDiv.appendChild(hr);
 
-    todoDataSection.appendChild(rowDiv);
+    todoDataList.appendChild(rowDiv);
 
 
 
