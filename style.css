@@ -1,48 +1,197 @@
-html{
+html {
     box-sizing: border-box;
+    height: 100%;
 }
+
 *, *::after, *::before {
     box-sizing: inherit;
-
 }
-:root{
+
+:root {
     --light-gray: #7284a1;
 }
-.input-section{
-    
-    
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #89cff0, #1e90ff);
+    background-attachment: fixed;
+    color: #fff;
+}
+
+.todo-app {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    max-width: 800px;
+}
+
+header h1 {
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.input-section {
     gap: 2rem;
 }
-.todo-input{
-    flex-basis: 60%;
+
+.todo-input input {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 5px;
+    padding: 0.7rem;
 }
-.list-todo-heading> div{
+
+.save-todo, .get-todos {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 5px;
+    color: #1e90ff;
+    padding: 0.7rem 1rem;
+    text-transform: uppercase;
     font-weight: bold;
-    font-size: 1.5rem;
-    margin-top: 2rem;
-
-
-
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
-.todo-no{
+
+.save-todo:hover, .get-todos:hover {
+    background-color: #fff;
+    transform: scale(1.05);
+}
+
+.list-todo-heading > div {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.todo-no {
     flex-basis: 3%;
 }
-.todo-detail{
+
+.todo-detail {
     flex-basis: 55%;
 }
-.todo-status{
+
+.todo-status {
     flex-basis: 10%;
 }
-.todo-actions{
+
+.todo-actions {
     flex-basis: 15%;
 }
-.todo-actions button{
+
+.todo-actions button {
     padding-top: 0.7rem;
     padding-bottom: 0.7rem;
-
 }
-.todo-item{
+
+.todo-item {
     font-size: 1.3rem;
     margin-bottom: 1rem;
     
 }
+
+/* Responsive styles for todo-data-list */
+.todo-data {
+    margin-top: 2rem;
+}
+
+.todo-data-list .row {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.todo-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* .todo-item .todo-no,
+.todo-item .todo-detail,
+.todo-item .todo-status,
+.todo-item .todo-actions {
+    flex-basis: 22%;
+    margin: 0.5rem 0;
+} */
+
+.todo-actions {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .list-todo-heading {
+        display: none;
+    }
+
+    .todo-data-list .row {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .todo-item {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the left */
+        gap: 0.5rem; /* Add spacing between elements */
+    }
+
+    .todo-item .todo-no,
+    .todo-item .todo-detail,
+    .todo-item .todo-status {
+        flex-basis: 100%;
+        margin: 0.2rem 0;
+        word-wrap: break-word; /* Ensure long text wraps */
+        font-size: 1rem; /* Adjust font size for smaller screens */
+    }
+
+
+    .todo-actions {
+        display: flex;
+        flex-wrap: wrap; /* Allow buttons to wrap to the next line */
+        gap: 0.5rem;
+        justify-content: flex-start; /* Align buttons to the left */
+        width: 100%; /* Prevent overflow */
+    }
+
+    .todo-actions button {
+        flex-grow: 1; /* Ensure buttons resize evenly */
+        text-align: center; /* Center-align button text */
+    }
+
+    .todo-status {
+        font-size: 0.9rem; /* Slightly smaller font for status */
+        color: var(--light-gray); /* Add a color for better visibility */
+    }
+}
+
+@media (max-width: 480px) {
+    .todo-item .todo-detail {
+        font-size: 0.9rem; /* Further reduce text size for smaller devices */
+        /* margin-left: -10px; */
+    }
+
+    .todo-item .todo-status {
+        font-size: 0.8rem;
+    }
+}
+

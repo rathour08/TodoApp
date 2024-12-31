@@ -12,49 +12,34 @@
 
 <body>
     <div class="todo-app">
-        <div class="container">
+        <div class="container py-4">
             <div class="row">
-                <header class="text-center">
+                <header class="text-center mb-4">
                     <h1>To-Do App</h1>
                 </header>
             </div>
             <div class="row">
-                <div class="input-section d-flex flex-row justify-content-center mt-4">
-                    <div class="todo-input">
-                        <input type="text" class="form-control" id= "todo-input-bar" placeholder="Write another todo">
-
+                <div class="input-section d-flex flex-column flex-md-row justify-content-center align-items-center gap-3">
+                    <div class="todo-input w-100 w-md-75">
+                        <input type="text" class="form-control" id="todo-input-bar" placeholder="Write another todo">
                     </div>
-                    <div class="save-todo btn btn-primary disabled" id="save-todo">
-                        Save
-
-                    </div>
-                    <div class="get-todos btn btn-warning" id="get-todos">
-                        Get Pending Todos
-
-                    </div>
+                    <div class="save-todo btn btn-primary disabled" id="save-todo">Save</div>
+                    <div class="get-todos btn btn-warning" id="get-todos">Get Pending Todos</div>
                 </div>
             </div>
-            <!-- list of todos -->
-            <div class="todo-data" id="todo-data">
+            <!-- List of Todos -->
+            <div class="todo-data mt-4" id="todo-data">
                 <div class="row">
                     <div class="list-todo-heading d-flex flex-row justify-content-between">
                         <div class="todo-no">No.</div>
                         <div class="todo-detail">Todo Items</div>
                         <div class="todo-status">Status</div>
                         <div class="todo-actions">Actions</div>
-
                     </div>
                 </div>
                 <hr>
-                <!-- actual todos -->
-                 <div class="todo-data-list" id="todo-data-list">
-                    
-                 </div>
-
-
-
-
-
+                <!-- Actual Todos -->
+                <div class="todo-data-list" id="todo-data-list"></div>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
@@ -64,6 +49,7 @@
             integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
             crossorigin="anonymous"></script>
         <script src="index.js"></script>
+    </div>
 </body>
 
 </html>
