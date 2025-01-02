@@ -41,7 +41,7 @@ Ensure you have the following installed on your system:
 
 ## 🌐 Live Demo
 
-[Live Demo Link](#) *(Add your live demo URL here if hosted)*
+[Live Demo Link](#)
 
 ---
 
