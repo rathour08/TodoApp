@@ -31,17 +31,6 @@ Ensure you have the following installed on your system:
 - A modern web browser (e.g., Chrome, Firefox)
 - [Node.js](https://nodejs.org/) (optional, for serving the app locally)
 
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/todo-app.git
-## 2. Navigate to the Project
-
-After cloning the repository, navigate to the project directory:
-
-```bash
-cd todo-app
 ## 🧠 Key Learnings
 
 - Dynamic **DOM manipulation** using JavaScript.
